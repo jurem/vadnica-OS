@@ -1,0 +1,21 @@
+\chapter{Sistemski klici}
+
+\section{Iz lupine v C}
+
+Pri nalogah tega tipa je podan ukaz za lupino bash. Potrebno pa je sprogramirati program v jeziku C, ki naredi enako kot dani ukaz. Pri tem
+\begin{itemize}
+	\item ukaze vgrajene v lupino sprogramiramo s pomočjo sistemskih klicev
+	\item zunanje ukaz zaženemo preko \id{fork()} \& \id{exec()}
+	\item uporabljamo le V/I funkcije brez medpomnilnika, torej \id{open()}, \id{read()}, \id{write()} in \id{close()}
+	\item uporaba funkcij, ko sta npr. \id{system()} in \id{popen()} ni dovoljena
+\end{itemize}
+
+
+\begin{Exercise}
+Napiši program v programskem jeziku C, ki naredi enako kot naslednji ukaz v lupini bash.
+\begin{enumerate}
+	\item \code{mkdir house \&\& touch mouse}
+	\item \code{cat <mouse | head -42}
+\end{enumerate}
+\end{Exercise}
+
