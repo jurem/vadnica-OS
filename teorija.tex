@@ -1,27 +1,307 @@
-\chapter{Vprašanja iz teorije}
+\documentclass{book}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=1in]{geometry}
 
+\begin{document}
 
+\chapter{Teorija}
 \section{Sistemski programi in lupina}
 
 \begin{enumerate}
-	\item TODO
+    \item Kateri dve vrsti lupin smo obravnavali glede na uporabniški vmesnik? Na kratko jih opiši.
+    \item Opišite mehanizem izhodnega statusa? Katera dva sistemska klica sta povezana s tem?
+    \item V ukazni lupini izvedemo ukaz mkdir a b. Koliko imeniških vnosov smo s tem ustvarili? Utemelji
+    
 \end{enumerate}
 
-
 \section{Uporabniki, datoteke in nadzor dostopa}
-
+aaa
 
 \section{Upravljanje pomnilnika}
-
+\begin{enumerate}
+    \item Dan je navidezni pomnilnik z ostranjevanjem, kjer so fizični naslovi veliki N=16 bitov, navidezni naslovi M=20 bitov, odmik znotraj strani pa P=10-bitov. Kakšna je velikost deskriptorja strani, če potrebujemo poleg številke okvirja še dva bita za mehanizem varnosti? Kako velika je tabela strani in koliko pomnilnika potrebujemo za njeno shranjevanje?
+    \item Opišite podobnosti in razlike priklopa datotečnih sistemov med sistemoma Windows in Linux. Kateri ukaz je namenjen temu v Linuxu?
+\end{enumerate}
 
 \section{Upravljanje procesov}
-
+\begin{enumerate}
+    \item Kaj je proces? Iz česa sestoji?
+    \item Opiši izvedbo preklopa procesa.
+    \item Trije procesi se sočasno izvajajo. Prvi proces najprej izpiše A nato B, drugi samo C in tretji samo D.
+        \begin{enumerate}
+            \item Kaj se izpiše, če se procesi na procesorju razvrstijo zaporedoma?
+            \item Obrazloži, zakaj je možnih več različnih izpisov.
+            \item Zapiši še vse ostale možne izpise, pri čemer izpis upoštevaj kot atomarno operacijo.
+        \end{enumerate}
+\end{enumerate}
 
 \section{Medprocesna komunikacija}
+\begin{enumerate}
+    \item Katera sta dva osnovna načina medprocesne komunikacije? Opišite ju.
+\end{enumerate}
 
+\section{Medprocesna sinhronizacija}
+\begin{enumerate}
+    \item Kaj je semafor? Opiši tudi obe pripadajoči osnovni operaciji.
+    \item Danih je 5 niti, ki souporabljajo spremenljivko števec, katere začetna vrednost je 0. Vsaka od niti inkrementira števec. Kakšna je lahko končna vrednost števca? Odgovor utemelji. Predpostavi LOAD/STORE arhitekturo procesorja.
+    \item Opiši ukaz TEST\&SET. Kako deluje, katere lastnosti zagotavlja? Kako bi ga uporabil za izvedbo vstopa v krtični odsek?
+    \item Danih je 42 procesov, ki le berejo vrednost neke skupne spremenljivke X in 6 procesov, ki vrednost skupne spremenljivke X tudi spreminjajo. Kako bi uspešno in učinkovito sinhroniziral vse te procese med seboj? Utemelji.
+\end{enumerate}
 
-\section{Medprocesna sinhronziacija}
-
+\section{DA/NE vprašanja}
+\begin{enumerate}
+    \item Slikarski algoritem pri skladovnem upravljanju oken najprej izriše uporabniku najbližje okno.
+    \item Glavna naloga mikro jedra je, da upravlja in nadzoruje mikro gonilnike.
+    \item Virtualizacija sestoji iz preslikave, ki vmesnik in vire navidezne naprave preslika v vmesnik in vire realne naprave.
+    \item Sistemski klic izvedemo tako, da v ustrezen register naložimo ime klica, npr. niz "fork" ali "open", nato pa izvedemo ustrezno programsko prekinitev ali namenski strojni ukaz.
+    \item Operacijski sistem Linux gesla uporabniških računov hrani v datoteki /etc/passwd.
+    \item Tako trde kot simbolične povezave lahko kažejo na datoteke, ki se nahajajo na drugi pomnilni napravi kot sama povezava.
+    \item Sistemski klic fork() ustvari nov proces otroka, ki je kopija starša: oba imata isto kodo, različna PIDa, iste odprte datoteke in si lastita iste ključavnice.
+    \item V operacijskem sistemu, ki podpira prekinjevalno večopravilnost, lahko neskončna zanka onemogoči normalno delovanje sistema.
+    \item Ker exit() v celoti sprosti naslovni prostor procesa, programerju ni potrebno skrbeti za pravilno sproščanje alociranega pomnilnika.
+    \item Strojni ukaz compare\&swap je posplošitev ukaza test\&set.
+    \item Podatkovna struktura inode med drugim hrani tudi ime datoteke.
+    \item Pri segmentaciji je pomnilnik razdeljen na bloke enake velikosti, le njihovo število je za vsak proces različno.
+    \item Monitor je sinhronizacijski mehanizem, ki zagotavlja vzajemno izključevanje za vsebovane funkcije in preprečuje tudi smrtni objem.
+    \item Izhodni status procesa se v operacijskem sistemu Linux hrani v procesovem deskriptorju.
+    \item Mikro jedrna arhitektura operacijskega sistema v splošnem nudi boljšo varnost kot monolitna.
+    \item Lupina je standardna knjižnica, ki med drugim vsebuje ovojne funkcije sistemskih klicev.
+    \item Psevdo terminal je program, ki oponaša terminal tako, da omogoča vnos in prikaz podatkov kot pravi terminal.
+    \item Persistenca pri datotekah pomeni, da do podatkov enotno dostopamo ne glede na dejanski fizični način njihovega hranjenja.
+    \item Jedro je temeljni del operacijskega sistema in se izvaja v zaščitenem načinu procesorja.
+    \item Prednost mikrojedrnih operacijskih sistemov je hitrost izvajanja, ker je izvedba mikro operacij zelo hitra.
+    \item POSIX je standard, katerega namen je poenotenje funkcionalnosti UNIX-podobnih operacijskih sistemov.
+    \item Uporabniški račun je mehanizem, ki vsebuje podatke o uporabniku in omogoča njihovo razlikovanje in upravljanje.
+    \item Sistemski klic fork() ustvari proces tako, da mu podamo pot do izvršne datoteke, ki vsebuje strojno kodo.
+    \item Pri preklopu procesa se med drugim kontekst najprej shrani v deskriptor odhajajočega procesa, nato se kontekst obnovi iz deskriptorja prihajajočega procesa.
+    \item Najbolj enostaven način virtualizacije pomnilnika je, da celotno preslikovalno tabelo (za čisto vse možne navidezne naslove) hranimo v glavnem pomnilniku.
+    \item Medprocesna komunikacija je mehanizem OS, ki omogoča prenos podatkov med naslovnimi prostori procesov brez kršenja zaščite procesov.
+    \item Glavna naloga niti je lastništvo virov, pri čemer ima vsaka nit svoje neodvisne vire, npr. svoj pomnilnik.
+    \item Pri sočasnem izvajanju lahko na enoprocesorskem sistemu pride do prepletanja izvajanja ukazov, na večprocesorskem pa tudi do njihovega prekrivanja.
+    \item Za ključavnice velja, da ena nit ključavnico zaklene, druga nit jo pa odklene.
+    \item Virtualizacija lahko omogoča tudi replikacijo virov, kar pomeni, da ustvarja vtis več istovrstnih naprav, kot jih dejansko je.
+\end{enumerate}
 
 \section{Ostalo}
+\begin{enumerate}
+    \item Kaj je randomizacija naslovnega prosta? Zakaj je koristna?
+    \item V OS (npr. Linux) bomo dodali nov sistemski klic tako, da smo zanj izbrali številko 42. Vse sistemske klice od vključno 42 naprej pa smo preštevilčili (inkrementirali številko klica). Obrazloži, kaj je narobe s tem pristopom, in kako bi pravilno izvedli dodajanje sistemskega klica.
+    \item Kaj je unikod? Kako kodiramo znak za novo vrstico v operacijskih sistemih Windows in Linux?
+    \item Kaj je sol in zakaj se uporablja?
+\end{enumerate}
 
+\chapter{Praksa}
+\section{Sistemski programi in lupina}
+\begin{enumerate}
+    \item Napiši skripto za lupino bash, ki rekurzivno preišče podimenike imenika, podanega kot prvi argument skripte, in iz datotek v imenom v obliki vašega AD uporabniškega imena (npr. xy1234@student.uni-lj.si) izlušči vsoto točk treh nalog. V kolikor je vsota večja ali enaka 25 točk, vsoto zapiše v skupno datoteko ucilnica.csv, ki jo skripta ustvari v imeniku, podanemu kot drugi argument programa, v obliki AD\_ime, VSOTA. V kolikor prvi argument ni podan, naj skripta privzame imenik /var/tmp. V kolikor drugi argument ni podan, naj skripta za ta imenik privzame trenutni imenik. Rekurzijo preiskovanje implementirajte sami. \\ \\ Primer datoteke xy1234@student.uni-lj.si (tocke posamezne naloge, ločene s presledki): \\10 12 9 \\ \\ Primer datoteke ucilnica.csv: \\xy1234@student.uni-lj.si, 31 \\xz2345@student.uni-lj.si, 45 
+    \item Zapiši enovrstični ukaz v lupini bash, ki ugotovi in izpiše imenik, kjer se nahaja znani ukaz cat.
+    \item Zapiši enovrstični ukaz v lupini bash, ki leksikografsko urejeno izpiše tretji stolpec iz datoteke /etc/passwd.
+    \item Dana je spremenljivka PROCESI, ki vsebuje seznam PIDov procesov (ločeni s presledki). Zapiši enovrstični ukaz za lupino bash, ki vse procese tega seznama zaustavi za 42 sekund in nato nadaljuje njihovo izvajanje.
+    \item Napišite bash skripto, ki iz datoteke, podane kot prvi argument programa (privzeta vrednost naj bo everyday.run, prebere imena ali absolutne poti programov. Za vsak program iz seznama izvede naslednje:
+        \begin{itemize}
+            \item Skripta naj poišče absolutno pot do programa, v kolikor je ta dosegljiv iz lupine.
+            \item V primeru, da program ne obstaja v trenutnem okolju, naj skripta izpiše "ERROR: ime\_skripte" kot komentar.
+            \item Skripta naj vse vrstice zapiše v datoteko zazeni.me in datoteko na koncu tudi izvede v ozadju.
+        \end{itemize}
+        Primer vhodne datoteke:
+        \begin{verbatim}
+            ls
+            mkdir
+            /home/student/skripta
+            /home/profesor/rezultati/student/naloga1/student/resitev
+            ne_obstajam
+        \end{verbatim}
+        Primer izpisa skripte:
+        \begin{verbatim}
+            /bin/usr/ls
+            /bin/usr/mkdir
+            /home/uporabnik/skripta
+            /home/profesor/rezultati/uporabnik/naloga1/uporabnik/resitev
+            #ERROR: ne_obstajam 
+        \end{verbatim}
+\end{enumerate}
+
+\section{Uporabniki}
+\begin{enumerate}
+    \item Dana je matrika dostopa (L – lastnik, R – branje, W – pisanje, X – izvajanje):
+        \begin{enumerate}
+        \item Minimalno dopolni matriko:
+            \begin{itemize}
+                \item smiselno dodaj lastništvo
+                \item uporabniki lahko berejo in pišejo vire, ki si jih lastijo
+                \item uporabnik B lahko bere vse vire, razen A-jevih
+                \item vir 2 lahko izvajata B in C
+                \item vir 3 želimo deliti za branje in pisanje med uporabnikoma A in C \\
+            \end{itemize}
+            \begin{tabular}{|*{5}{p{2cm}|}}
+                \hline
+                Uporabnik \textbackslash Vir & 1 & 2 & 3 & 4 \\
+                \hline
+                A &  & R,W &  &  \\
+                \hline
+                B & W &  &  &  \\
+                \hline
+                C & R & R &  & L,R,W \\
+                \hline
+            \end{tabular}
+        \item Zapišite nadzorni seznam dostopa (access control list), ki ga podaja dopolnjena matrika iz prejšnje točke.
+    \end{enumerate}
+    
+\end{enumerate}
+
+\section{Razvrščanje}
+\begin{enumerate}
+    \item Razvrsti procese glede na dane podatke. Nariši diagram procesov in dopolni tabelo.
+        \begin{enumerate}
+            \item Algoritem prvi pride, prvi mejle (FIFO) \\
+                \begin{tabular}{|c|c|c|c|c|c|c|}
+                    \hline
+                    Proces & Dolžina & Prihodni čas & Začetni čas & Odhodni čas & Čas obdelave & Odzivni čas \\
+                    \hline
+                    A & 30 & 0 & & & & \\
+                    \hline
+                    B & 10 & 10 & & & & \\
+                    \hline
+                    C & 20 & 20 & & & & \\
+                    \hline
+                \end{tabular}
+            \item Algoritem prekinjevalni najkrajši posel najprej (SJF) \\
+                \begin{tabular}{|c|c|c|c|c|c|c|}
+                    \hline
+                    Proces & Dolžina & Prihodni čas & Začetni čas & Odhodni čas & Čas obdelave & Odzivni čas \\
+                    \hline
+                    A & 30 & 0 & & & & \\
+                    \hline
+                    B & 10 & 10 & & & & \\
+                    \hline
+                    C & 20 & 20 & & & & \\
+                    \hline
+                \end{tabular}
+        \end{enumerate}
+    \item Tri procese razvrščamo s prepustnicami. Prvi proces ima 10 prepustnic, drugi 20 in tretji 30. Kakšna je verjetnost izbire posameznega procesa? Kateri proces bo izbran ob žrebu prepustnice št. 15?
+    \item Razvrsti procese glede na dane podatke. Uporabi časovno rezino 10 in nariši diagram procesov in dopolni tabelo.
+        \begin{enumerate}
+            \item Krožno ravrščanje (round robin – RR) \\
+                \begin{tabular}{|c|c|c|c|c|c|c|}
+                    \hline
+                    Proces & Dolžina & Prihodni čas & Začetni čas & Odhodni čas & Čas obdelave & Odzivni čas \\
+                    \hline
+                    A & 30 & 0 & & & & \\
+                    \hline
+                    B & 10 & 10 & & & & \\
+                    \hline
+                    C & 20 & 20 & & & & \\
+                    \hline
+                \end{tabular}
+            \item Prekinjevalni najkrajši posel najprej (preemptive shortest job first – PSJF) \\
+                \begin{tabular}{|c|c|c|c|c|c|c|}
+                    \hline
+                    Proces & Dolžina & Prihodni čas & Začetni čas & Odhodni čas & Čas obdelave & Odzivni čas \\
+                    \hline
+                    A & 20 & 0 & & & & \\
+                    \hline
+                    B & 60 & 10 & & & & \\
+                    \hline
+                    C & 40 & 20 & & & & \\
+                    \hline
+                \end{tabular}
+        \end{enumerate}
+    \item Razvrsti procese glede na dane podatke. Uporabi časovno rezino 10 in nariši diagram procesov in dopolni tabelo.
+        \begin{enumerate}
+            \item Prvi pride, prvi melje (first come, first serve – FCFS) \\
+                \begin{tabular}{|c|c|c|c|c|c|c|}
+                    \hline
+                    Proces & Dolžina & Prihodni čas & Začetni čas & Odhodni čas & Čas obdelave & Odzivni čas \\
+                    \hline
+                    A & 30 & 0 & & & & \\
+                    \hline
+                    B & 40 & 10 & & & & \\
+                    \hline
+                    C & 20 & 20 & & & & \\
+                    \hline
+                \end{tabular}            
+            \item Prekinjevalni najkrajši posel najprej (preemptive shortest job first – PSJF) \\
+                \begin{tabular}{|c|c|c|c|c|c|c|}
+                    \hline
+                    Proces & Dolžina & Prihodni čas & Začetni čas & Odhodni čas & Čas obdelave & Odzivni čas \\
+                    \hline
+                    A & 10 & 0 & & & & \\
+                    \hline
+                    B & 20 & 10 & & & & \\
+                    \hline
+                    C & 10 & 20 & & & & \\
+                    \hline
+                \end{tabular}
+        \end{enumerate}
+\end{enumerate}
+
+\section{Jezik C}
+\begin{enumerate}
+    \item Napiši program v programskem jeziku C, ki naredi enako kot naslednji ukaz v lupini bash, pri čemer zunanje ukaze ustrezno zaženite (ne jih programirati): 
+        \begin{verbatim}
+            mkdir house && touch mouse; cat < mouse | head -42    
+        \end{verbatim}
+    \item Napiši program v programskem jeziku C, ki naredi enako kot naslednji ukaz v lupini bash, pri čemer zunanje ukaze ustrezno zaženite (ne jih programirati):
+        \begin{verbatim}
+            cat a &> out; cat out | grep error 2> error
+        \end{verbatim}
+    \item Za spodnji program nariši diagram izvajanja procesov, kot smo ga risali na vajah. Odgovori tudi na zastavljena vprašanja.
+        \begin{enumerate}
+            \item Kakšno je časovno zaporedje izhodnih statusov izvedenih procesov v programu?
+            \item Kateri sistemski klici se ne izvedejo v nobenem procesu (so pa prisotni v programu)?
+            \item Kaj izpiše ukaz echo \$? po izvedbi programa?
+            \item Kaj procesi zapišejo na standardni izhod? Kaj izpišejo na izhod za napake?
+        \end{enumerate}
+        \begin{verbatim}
+            int main() {
+                int status = 0;
+                for (int z = 0; z <= 2; z++) {
+                    int a = fork();
+                    if (!a) {
+                        sleep(1);
+                        close(1);
+                        if (z == 0) {
+                            printf("delam ");
+                            exit(42);
+                        }
+                        if (z == 1) {
+                            printf("se ");
+                            exit(99);
+                        }
+                        if (z == 2) {
+                            printf("da ");
+                        } else {
+                            printf("delam ");
+                        }
+                        if (z == 2) {
+                            write(2, "zzz", 2);
+                        }
+                        sleep(z);
+                        exit(z);
+                    }
+                    if (z == 0) {
+                        waitpid(-1, &status, 0);
+                        printf("cakam ");
+                        exit(WEXITSTATUS(status));
+                    }
+                }
+                exit(100);
+            }
+        \end{verbatim}
+    \item Napiši program v programskem jeziku C, ki naredi enako kot naslednji ukaz v lupini bash, pri čemer zunanje ukaze ustrezno zaženite (ne jih programirati):
+        \begin{verbatim}
+            (mkdir house && touch mouse) || cat tail
+        \end{verbatim}
+\end{enumerate}
+
+\section{Ostalo}
+\begin{enumerate}
+    \item Reši naslednjo nalogo iz stanj procesa.
+        \begin{enumerate}
+            \item Nariši osnovni diagram prehajanja stanj procesa. 
+            \item Obrazloži prehod iz stanja izvajan v čakajoč. 
+            \item Obrazloži prehod iz stanja čakajoč v pripravljen.
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}
